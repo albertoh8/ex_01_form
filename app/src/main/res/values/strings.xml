@@ -8,6 +8,7 @@
     <string name="name">Nombre</string>
     <string name="apellido">Apellidos</string>
     <string name="email">Email</string>
+    <string name="eliminar">Eliminar</string>
     <string name="fech_nac">Fecha de Nacimiento</string>
     <string name="guardar">Guardar</string>
     <string name="recuperar">Recuperar</string>

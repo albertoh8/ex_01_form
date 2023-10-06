@@ -28,19 +28,6 @@ class XmlLocalDataSource(
         return user.right()
     }
 
-
-//    fun getUsers(): Either<ErrorApp,User> {
-//        return try {
-//            User(
-//                sharedPreferences.getString("name", "")!!,
-//                sharedPreferences.getString("surname", "")!!,
-//                sharedPreferences.getString("email", "")!!
-//            ).right()
-//        } catch (ex : Exception) {
-//            return ErrorApp.UnknowwError.left()
-//        }
-//    }
-
     fun saveUser(user: User): Either<ErrorApp, Boolean> {
         try {
             val jsonSavUser = gson.toJson(user, User::class.java)
@@ -59,5 +46,11 @@ class XmlLocalDataSource(
             gson.fromJson(it.value as String, User::class.java)
         }.right()
 
+    }
+
+    fun delete(): Either<ErrorApp,Boolean>{
+        editor.clear().apply()
+
+        return true.right()
     }
 }

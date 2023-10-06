@@ -4,13 +4,17 @@ import android.content.Context
 import android.content.SharedPreferences
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.widget.Button
 import android.widget.EditText
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.isVisible
 import androidx.lifecycle.Observer
 import com.alberherjim.androidtraining.R
 import com.alberherjim.androidtraining.data.UserDataRepository
 import com.alberherjim.androidtraining.data.local.xml.XmlLocalDataSource
+import com.alberherjim.androidtraining.domain.DeleteUsersUseCase
 import com.alberherjim.androidtraining.domain.GetUserUseCase
 import com.alberherjim.androidtraining.domain.SaveUserUseCase
 import com.alberherjim.androidtraining.domain.User
@@ -21,12 +25,12 @@ class MainActivity : AppCompatActivity() {
     val viewModel: MainActivityViewModel by lazy {
         MainActivityViewModel(
             SaveUserUseCase(UserDataRepository(XmlLocalDataSource(this))),
-            GetUserUseCase(UserDataRepository(XmlLocalDataSource(this)))
+            GetUserUseCase(UserDataRepository(XmlLocalDataSource(this))),
+            DeleteUsersUseCase(UserDataRepository(XmlLocalDataSource(this)))
         )
     }
 
     var userName = ""
-
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -50,15 +54,19 @@ class MainActivity : AppCompatActivity() {
         val actionButton = findViewById<Button>(R.id.button_save)
         val actionButtonClean = findViewById<Button>(R.id.button_limpiar)
         val actionButtonRecovery = findViewById<Button>(R.id.button_recuperar)
+        val actionDelete = findViewById<Button>(R.id.button_delete)
         actionButton.setOnClickListener {
             saveUser()
-             userName = findViewById<EditText>(R.id.name_text).text.toString()
+            userName = findViewById<EditText>(R.id.name_text).text.toString()
         }
         actionButtonClean.setOnClickListener {
             cleanForm()
         }
         actionButtonRecovery.setOnClickListener {
             recoverData()
+        }
+        actionDelete.setOnClickListener{
+            deleteUsers()
         }
     }
 
@@ -96,6 +104,23 @@ class MainActivity : AppCompatActivity() {
         cleanName()
         cleanSurname()
         cleanEmail()
+        changeVisibility()
+    }
+
+    fun changeVisibility() {
+        val NameView = findViewById<TextView>(R.id.user_name)
+        val SurnameView = findViewById<TextView>(R.id.user_surname)
+        val EmailView = findViewById<TextView>(R.id.user_email)
+        val DeleteButton = findViewById<Button>(R.id.button_delete)
+
+        NameView.setVisibility(View.VISIBLE)
+        SurnameView.setVisibility(View.VISIBLE)
+        EmailView.setVisibility(View.VISIBLE)
+        DeleteButton.setVisibility(View.VISIBLE)
+        NameView.setText(XmlLocalDataSource(this).getUser(userName).fold({ it.toString() }, { it.name }))
+        SurnameView.setText(XmlLocalDataSource(this).getUser(userName).fold({ it.toString() }, { it.surname }))
+        EmailView.setText(XmlLocalDataSource(this).getUser(userName).fold({ it.toString() }, { it.email }))
+
     }
 
     fun cleanName() = findViewById<EditText>(R.id.name_text).setText("")
@@ -111,16 +136,25 @@ class MainActivity : AppCompatActivity() {
         getUser(userName)
     }
 
-    fun recoverName() = findViewById<EditText>(R.id.name_text).setText(XmlLocalDataSource(this).getUser(userName).fold({it.toString()},{it.name}))
-    fun recoverSurname() = findViewById<EditText>(R.id.surname_text).setText(XmlLocalDataSource(this).getUser(userName).fold({it.toString()},{it.surname}))
-    fun recoverEmail() =findViewById<EditText>(R.id.email_text).setText(XmlLocalDataSource(this).getUser(userName).fold({it.toString()},{it.email}))
+    fun recoverName() = findViewById<EditText>(R.id.name_text).setText(
+        XmlLocalDataSource(this).getUser(userName).fold({ it.toString() }, { it.name })
+    )
 
-    fun getUser(name:String){
-        val xml = XmlLocalDataSource(this)
-        val user = xml.getUser(name).get()
-        Log.d("@dev", "Usuario: $user")
+    fun recoverSurname() = findViewById<EditText>(R.id.surname_text).setText(
+        XmlLocalDataSource(this).getUser(userName).fold({ it.toString() }, { it.surname })
+    )
+
+    fun recoverEmail() = findViewById<EditText>(R.id.email_text).setText(
+        XmlLocalDataSource(this).getUser(userName).fold({ it.toString() }, { it.email })
+    )
+
+    fun getUser(name: String) {
+        viewModel.getUser(name)
     }
 
+    fun deleteUsers() {
+        viewModel.deleteUsers()
+    }
 
 }
 

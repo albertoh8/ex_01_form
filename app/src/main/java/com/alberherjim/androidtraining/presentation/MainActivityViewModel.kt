@@ -5,6 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.alberherjim.androidtraining.app.ErrorApp
+import com.alberherjim.androidtraining.domain.DeleteUsersUseCase
 import com.alberherjim.androidtraining.domain.GetUserUseCase
 import com.alberherjim.androidtraining.domain.SaveUserUseCase
 import com.alberherjim.androidtraining.domain.User
@@ -14,7 +15,8 @@ import perfetto.protos.UiState
 
 class MainActivityViewModel(
     private val saveUsers: SaveUserUseCase,
-    private val getUser: GetUserUseCase
+    private val getUser: GetUserUseCase,
+    private val deleteUsers : DeleteUsersUseCase
 ): ViewModel() {
     private val _uiState = MutableLiveData<UiState>()
     val uiState : LiveData<UiState> = _uiState
@@ -34,6 +36,12 @@ class MainActivityViewModel(
                 { responseError(it)},
                 { responseGetUserSuccess(it)}
             )
+        }
+    }
+
+    fun deleteUsers(){
+        viewModelScope.launch(Dispatchers.IO) {
+            deleteUsers.invoke()
         }
     }
 

@@ -11,4 +11,6 @@ interface UserRepository {
 
     fun getAll(): Either<ErrorApp,List<User>>
 
+    fun delete(): Either<ErrorApp,Boolean>
+
 }

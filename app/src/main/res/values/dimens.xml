@@ -3,6 +3,8 @@
     <dimen name="img_size_m">200dp</dimen>
 
     <dimen name="margin_size_m">12dp</dimen>
+    <dimen name="margin_size_l">16dp</dimen>
     <dimen name="edit_text_size">56dp</dimen>
+    <dimen name="buttom_size_m">120dp</dimen>
 
 </resources>
