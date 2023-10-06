@@ -1,4 +1,4 @@
-# ex_01_form
+# Ejercicio1: Formulario de Usuario
 Ejercicio que guarda datos de un formulario en un fichero xml(SharedPreferences)
 
 ## Modulos: 
