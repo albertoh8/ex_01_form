@@ -8,12 +8,32 @@
     <string name="name">Nombre</string>
     <string name="apellido">Apellidos</string>
     <string name="email">Email</string>
+    <string name="eliminar">Eliminar</string>
     <string name="fech_nac">Fecha de Nacimiento</string>
     <string name="guardar">Guardar</string>
-    <string name="recuperar">Recuperar</string>
+    <string name="editar">Editar</string>
     <string name="limpiar">Limpiar</string>
     <string name="name_hint">Introduce el nombre</string>
     <string name="apellido_hint">Introduce el apellido</string>
     <string name="email_hint">Introduce el Email</string>
+    <!--Buttom names-->
+    <string name="action_ex01">Ejercicio01</string>
+    <string name="action_ex02a">Ejercicio02a</string>
+    <string name="action_ex02b">Ejercicio02b</string>
+    <string name="action_ex02c">Ejercicio02b</string>
+    <!--Ex02b strings-->
+    <string name="discount">Discount</string>
+    <string name="rate">Rate</string>
+    <string name="title">Title</string>
+    <string name="time">Time to go</string>
+    <!--Ex02a strings-->
+    <string name="dog_name">Rami</string>
+    <string name="description">Descripcion</string>
+    <string name="genre">Genero</string>
+    <string name="birthday">Fecha cumple</string>
+    <!--Ex02c strings-->
+    <string name="dowloads">Descargas</string>
+    <string name="size">size</string>
+    <string name="duration">duration</string>
 
 </resources>

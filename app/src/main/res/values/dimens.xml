@@ -1,8 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!--Image sizes-->
+    <dimen name="img_size_xs">100dp</dimen>
+    <dimen name="img_size_s">140dp</dimen>
     <dimen name="img_size_m">200dp</dimen>
-
-    <dimen name="margin_size_m">12dp</dimen>
+    <dimen name="img_size_l">300dp</dimen>
+    <!--Margin sizes-->
+    <dimen name="margin_size_xs">12dp</dimen>
+    <dimen name="margin_size_s">16dp</dimen>
+    <dimen name="margin_size_m">20dp</dimen>
+    <dimen name="margin_size_l">24dp</dimen>
+    <dimen name="margin_size_xl">64dp</dimen>
+    <dimen name="margin_size_xxl">96dp</dimen>
+    <!--Text sizes-->
+    <dimen name="text_size_l">20sp</dimen>
+    <dimen name="text_size_m">16sp</dimen>
+    <!--Other sizes-->
     <dimen name="edit_text_size">56dp</dimen>
+    <dimen name="buttom_size_m">120dp</dimen>
 
 </resources>

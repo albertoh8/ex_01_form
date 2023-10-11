@@ -12,14 +12,34 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AndroidTraining"
         tools:targetApi="31">
+
         <activity
-            android:name=".presentation.MainActivity"
+            android:name=".features.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
+        </activity>
+
+        <activity
+            android:name=".features.ex_01.presentation.Ex01FormActivity"
+            android:exported="true">
+
+        </activity>
+
+        <activity
+            android:name=".features.ex_02a.presentation.Ex02ActivityMain"
+            android:exported="true">
+
+        </activity>
+
+        <activity
+            android:name=".features.ex_02b.presentation.EX02bMainActivity"
+            android:exported="true">
+
         </activity>
     </application>
 
