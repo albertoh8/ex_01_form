@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/photo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="@dimen/margin_size_m"
+        android:layout_marginEnd="@dimen/margin_size_s"
+        android:layout_marginStart="@dimen/margin_size_s"
+        android:background="@drawable/ic_burguer">
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/title"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_size_l"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="@dimen/margin_size_xl"/>
+        <TextView
+            android:id="@+id/discount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_size_m"
+            android:text="@string/discount"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="@dimen/margin_size_m"
+            android:background="@color/yellow"/>
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/like"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_like"
+        android:layout_below="@id/photo"
+        android:layout_marginTop="@dimen/margin_size_xs"
+        android:layout_alignStart="@id/photo"/>
+
+    <TextView
+        android:id="@+id/rate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/rate"
+        android:textColor="@color/black"
+        android:textSize="@dimen/text_size_m"
+        android:layout_below="@id/photo"
+        android:layout_alignTop="@id/like"
+        android:layout_alignStart="@id/like"
+        android:layout_alignBottom="@id/like"
+        android:layout_marginStart="@dimen/margin_size_l"/>
+
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_motorcycle"
+        android:layout_alignTop="@id/like"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="@dimen/margin_size_xxl"/>
+
+    <TextView
+        android:id="@+id/time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/time"
+        android:textColor="@color/black"
+        android:textSize="@dimen/text_size_m"
+        android:layout_alignTop="@id/like"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="@dimen/margin_size_m"/>
+
+
+</RelativeLayout>
