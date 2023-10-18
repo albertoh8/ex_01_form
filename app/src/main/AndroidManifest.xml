@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -12,7 +15,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AndroidTraining"
         tools:targetApi="31">
-
+        <activity
+            android:name=".features.ex_03.Ex03GlideActivity"
+            android:exported="false" />
         <activity
             android:name=".features.MainActivity"
             android:exported="true">
@@ -21,26 +26,16 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
-
         <activity
             android:name=".features.ex_01.presentation.Ex01FormActivity"
-            android:exported="true">
-
-        </activity>
-
+            android:exported="true"></activity>
         <activity
             android:name=".features.ex_02a.presentation.Ex02ActivityMain"
-            android:exported="true">
-
-        </activity>
-
+            android:exported="true"></activity>
         <activity
             android:name=".features.ex_02b.presentation.EX02bMainActivity"
-            android:exported="true">
-
-        </activity>
+            android:exported="true"></activity>
     </application>
 
 </manifest>

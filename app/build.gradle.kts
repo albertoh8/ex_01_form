@@ -54,4 +54,8 @@ dependencies {
     val lifecycle_version = "2.6.2"
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version")
     implementation("androidx.activity:activity-ktx:1.7.2")
+
+    implementation("com.faltenreich:skeletonlayout:5.0.0")
+
+    implementation("com.github.bumptech.glide:glide:4.16.0")
 }

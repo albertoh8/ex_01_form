@@ -5,6 +5,9 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import com.alberherjim.androidtraining.R
+import com.alberherjim.androidtraining.app.ErrorApp
+import com.alberherjim.androidtraining.app.extensions.hide
+import com.alberherjim.androidtraining.app.extensions.visible
 import com.alberherjim.androidtraining.databinding.ActivityGlovoBinding
 import com.alberherjim.androidtraining.databinding.ActivityHuellasBinding
 import com.alberherjim.androidtraining.features.ex_02a.data.DogDataRepository
@@ -12,6 +15,7 @@ import com.alberherjim.androidtraining.features.ex_02a.data.local.XmlLocalDataSo
 import com.alberherjim.androidtraining.features.ex_02a.data.remote.MockDogRemoteDataSource
 import com.alberherjim.androidtraining.features.ex_02a.domain.Dog
 import com.alberherjim.androidtraining.features.ex_02a.domain.GetDogUseCase
+import kotlinx.coroutines.delay
 import java.text.SimpleDateFormat
 
 class Ex02ActivityMain : AppCompatActivity() {
@@ -29,8 +33,11 @@ class Ex02ActivityMain : AppCompatActivity() {
         bindView()
         setupObservers()
         setupView()
+        showError(ErrorApp.UnknowwError)
 
     }
+
+
 
     private fun bindView() {
         viewBinding = ActivityHuellasBinding.inflate(layoutInflater)
@@ -45,11 +52,28 @@ class Ex02ActivityMain : AppCompatActivity() {
     private fun setupObservers() {
         viewModel.getDog()
         val observer = Observer<Ex02ActivityViewModel.UiState> {
+            it.errorApp?.let {
+                showError(it)
+            }
             it.dog?.apply {
                 bindData(this)
+                showView()
             }
         }
         viewModel.uiState.observe(this, observer)
+    }
+
+    
+    private fun showError(error:ErrorApp) {
+        viewBinding.layoutError.layoutError.visible()
+        when(error){
+            ErrorApp.UnknowwError -> viewBinding.layoutWihtoutError.hide()
+        }
+    }
+
+    private fun showView() {
+        viewBinding.layoutError.layoutError.hide()
+        viewBinding.layoutWihtoutError.visible()
     }
 
 
