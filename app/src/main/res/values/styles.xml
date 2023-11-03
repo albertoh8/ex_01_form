@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="AppToolbar" parent="Widget.Material3.Toolbar">
+        <item name="titleCentered">true</item>
+        <item name="titleTextColor">?attr/colorPrimary</item>
+    </style>
+
+    <style name="CollapseToolbar" parent="TextAppearance.Design.CollapsingToolbar.Expanded">
+        <item name="titleCentered">true</item>
+        <item name="titleTextColor">?attr/colorPrimary</item>
+    </style>
+
+    <style name="AppCard" parent="Widget.Material3.CardView.Elevated">
+        <item name="cardBackgroundColor">?attr/colorPrimaryContainer</item>
+        <item name="elevation">4dp</item>
+        <item name="cornerRadius">8dp</item>
+
+    </style>
+
+    <style name="AppCard2" parent="Widget.Material3.CardView.Elevated">
+        <item name="cardBackgroundColor">?attr/colorPrimaryContainer</item>
+        <item name="elevation">4dp</item>
+        <item name="cornerRadius">8dp</item>
+        <item name="strokeWidth">2dp</item>
+    </style>
+
+    <style name="TextTitle" parent="Widget.MaterialComponents.TextView">
+        <item name="android:textColor">?attr/colorOnBackground</item>
+        <item name="android:textSize">26sp</item>
+    </style>
+
+    <style name="TextTitle2" parent="Widget.MaterialComponents.TextView">
+        <item name="android:textColor">?attr/colorPrimary</item>
+        <item name="android:textSize">28sp</item>
+    </style>
+
+    <style name="AppShapeableImageCorner">
+        <item name="cornerSize">20dp</item>
+        <item name="cornerFamily">rounded</item>
+
+    </style>
+
+    <style name="TextSizeM" parent="Widget.MaterialComponents.TextView">
+        <item name="android:textColor">?attr/colorPrimary</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <style name="TextDesc" parent="Widget.MaterialComponents.TextView">
+        <item name="android:textColor">?attr/colorOnSurfaceVariant</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+
+</resources>

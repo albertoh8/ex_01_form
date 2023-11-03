@@ -1,26 +1,22 @@
-package com.alberherjim.androidtraining.presentation
+package com.alberherjim.androidtraining.features.ex_01.presentation
 
-import android.content.Context
-import android.content.SharedPreferences
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.isVisible
 import androidx.lifecycle.Observer
 import com.alberherjim.androidtraining.R
-import com.alberherjim.androidtraining.data.UserDataRepository
-import com.alberherjim.androidtraining.data.local.xml.XmlLocalDataSource
-import com.alberherjim.androidtraining.domain.DeleteUsersUseCase
-import com.alberherjim.androidtraining.domain.GetUserUseCase
-import com.alberherjim.androidtraining.domain.SaveUserUseCase
-import com.alberherjim.androidtraining.domain.User
-import com.alberherjim.androidtraining.domain.UserRepository
+import com.alberherjim.androidtraining.features.ex_01.data.UserDataRepository
+import com.alberherjim.androidtraining.features.ex_01.data.local.xml.XmlLocalDataSource
+import com.alberherjim.androidtraining.features.ex_01.domain.DeleteUsersUseCase
+import com.alberherjim.androidtraining.features.ex_01.domain.GetUserUseCase
+import com.alberherjim.androidtraining.features.ex_01.domain.SaveUserUseCase
+import com.alberherjim.androidtraining.features.ex_01.domain.User
 
-class MainActivity : AppCompatActivity() {
+class Ex01FormActivity : AppCompatActivity() {
     //val viewModels : MainActivityViewModel by viewModels()
     val viewModel: MainActivityViewModel by lazy {
         MainActivityViewModel(
@@ -35,7 +31,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_ex_01_form)
         setupObservers()
         setupView()
     }
@@ -53,10 +49,11 @@ class MainActivity : AppCompatActivity() {
     private fun setupView() {
         val actionButton = findViewById<Button>(R.id.button_save)
         val actionButtonClean = findViewById<Button>(R.id.button_limpiar)
-        val actionButtonRecovery = findViewById<Button>(R.id.button_recuperar)
+        val actionButtonRecovery = findViewById<Button>(R.id.button_edit)
         val actionDelete = findViewById<Button>(R.id.button_delete)
         actionButton.setOnClickListener {
             saveUser()
+            Toast.makeText(this,"Usuario guardado",Toast.LENGTH_LONG).show()
             userName = findViewById<EditText>(R.id.name_text).text.toString()
         }
         actionButtonClean.setOnClickListener {
@@ -92,7 +89,7 @@ class MainActivity : AppCompatActivity() {
     fun saveUser() {
         val user1 = User(getName(), getSurname(), getEmail())
         viewModel.saveUser(user1)
-    }
+        }
 
     private fun getName(): String = findViewById<EditText>(R.id.name_text).text.toString()
     private fun getSurname(): String = findViewById<EditText>(R.id.surname_text).text.toString()
@@ -112,11 +109,14 @@ class MainActivity : AppCompatActivity() {
         val SurnameView = findViewById<TextView>(R.id.user_surname)
         val EmailView = findViewById<TextView>(R.id.user_email)
         val DeleteButton = findViewById<Button>(R.id.button_delete)
+        val EditButtom = findViewById<Button>(R.id.button_edit)
 
         NameView.setVisibility(View.VISIBLE)
         SurnameView.setVisibility(View.VISIBLE)
         EmailView.setVisibility(View.VISIBLE)
         DeleteButton.setVisibility(View.VISIBLE)
+        EditButtom.setVisibility(View.VISIBLE)
+
         NameView.setText(XmlLocalDataSource(this).getUser(userName).fold({ it.toString() }, { it.name }))
         SurnameView.setText(XmlLocalDataSource(this).getUser(userName).fold({ it.toString() }, { it.surname }))
         EmailView.setText(XmlLocalDataSource(this).getUser(userName).fold({ it.toString() }, { it.email }))
@@ -154,8 +154,19 @@ class MainActivity : AppCompatActivity() {
 
     fun deleteUsers() {
         viewModel.deleteUsers()
-    }
+        val NameView = findViewById<TextView>(R.id.user_name)
+        val SurnameView = findViewById<TextView>(R.id.user_surname)
+        val EmailView = findViewById<TextView>(R.id.user_email)
+        val DeleteButton = findViewById<Button>(R.id.button_delete)
+        val EditButtom = findViewById<Button>(R.id.button_edit)
 
+        NameView.setVisibility(View.INVISIBLE)
+        SurnameView.setVisibility(View.INVISIBLE)
+        EmailView.setVisibility(View.INVISIBLE)
+        DeleteButton.setVisibility(View.INVISIBLE)
+        EditButtom.setVisibility(View.INVISIBLE)
+
+    }
 }
 
 

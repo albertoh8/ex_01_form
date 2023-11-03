@@ -1,8 +1,8 @@
-package com.alberherjim.androidtraining.data.local.xml
+package com.alberherjim.androidtraining.features.ex_01.data.local.xml
 
 import android.content.Context
 import com.alberherjim.androidtraining.app.ErrorApp
-import com.alberherjim.androidtraining.domain.User
+import com.alberherjim.androidtraining.features.ex_01.domain.User
 import com.google.gson.Gson
 import com.iesam.kotlintrainning.Either
 import com.iesam.kotlintrainning.left
@@ -17,10 +17,7 @@ class XmlLocalDataSource(
     private val editor = sharedPreferences.edit()
     private val gson = Gson()
 
-
-
-
-    fun getUser(name:String): Either<ErrorApp,User> {
+    fun getUser(name:String): Either<ErrorApp, User> {
         val jsonUser = sharedPreferences.getString(name, null)
         val user = jsonUser.let {
             gson.fromJson(jsonUser, User::class.java)
@@ -51,6 +48,11 @@ class XmlLocalDataSource(
     fun delete(): Either<ErrorApp,Boolean>{
         editor.clear().apply()
 
+        return true.right()
+    }
+
+    fun removeUserById(userName : String) : Either<ErrorApp,Boolean>{
+        editor.remove(userName).apply()
         return true.right()
     }
 }

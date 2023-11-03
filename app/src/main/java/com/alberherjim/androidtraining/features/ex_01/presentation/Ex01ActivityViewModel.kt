@@ -1,17 +1,16 @@
-package com.alberherjim.androidtraining.presentation
+package com.alberherjim.androidtraining.features.ex_01.presentation
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.alberherjim.androidtraining.app.ErrorApp
-import com.alberherjim.androidtraining.domain.DeleteUsersUseCase
-import com.alberherjim.androidtraining.domain.GetUserUseCase
-import com.alberherjim.androidtraining.domain.SaveUserUseCase
-import com.alberherjim.androidtraining.domain.User
+import com.alberherjim.androidtraining.features.ex_01.domain.DeleteUsersUseCase
+import com.alberherjim.androidtraining.features.ex_01.domain.GetUserUseCase
+import com.alberherjim.androidtraining.features.ex_01.domain.SaveUserUseCase
+import com.alberherjim.androidtraining.features.ex_01.domain.User
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import perfetto.protos.UiState
 
 class MainActivityViewModel(
     private val saveUsers: SaveUserUseCase,

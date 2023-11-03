@@ -9,6 +9,7 @@ import com.alberherjim.androidtraining.features.ex_01.presentation.Ex01FormActiv
 import com.alberherjim.androidtraining.features.ex_02a.presentation.Ex02ActivityMain
 import com.alberherjim.androidtraining.features.ex_02b.presentation.EX02bMainActivity
 import com.alberherjim.androidtraining.features.ex_02c.presentation.EX02cMainActivity
+import com.alberherjim.androidtraining.features.ex_03.Ex03GlideActivity
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -29,6 +30,9 @@ class MainActivity : AppCompatActivity() {
         }
         findViewById<Button>(R.id.action_ex02c).setOnClickListener {
             startActivity(Intent(this, EX02cMainActivity::class.java))
+        }
+        findViewById<Button>(R.id.action_ex03).setOnClickListener {
+            startActivity(Intent(this,Ex03GlideActivity::class.java))
         }
     }
 }

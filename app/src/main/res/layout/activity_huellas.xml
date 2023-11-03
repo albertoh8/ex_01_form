@@ -1,105 +1,115 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <com.google.android.material.imageview.ShapeableImageView
-        android:adjustViewBounds="true"
-        android:scaleType="centerCrop"
-        android:id="@+id/dog_photo"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginStart="@dimen/margin_size_m"
-        android:layout_marginTop="@dimen/margin_size_m"
-        android:layout_marginEnd="@dimen/margin_size_m"
-        android:layout_marginBottom="@dimen/margin_size_m"
-        android:src="@drawable/ic_dog" />
-
     <RelativeLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/dog_photo"
-        android:layout_alignStart="@id/dog_photo"
-        android:layout_alignEnd="@id/dog_photo">
+        android:id="@+id/layout_wihtout_error"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-        <TextView
-            android:id="@+id/dog_name"
-            android:layout_width="wrap_content"
+        <com.google.android.material.imageview.ShapeableImageView
+            android:adjustViewBounds="true"
+            android:scaleType="centerCrop"
+            android:id="@+id/dog_photo"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="@string/name"
-            android:textColor="@color/black"
-            android:textSize="@dimen/text_size_l" />
-
-        <TextView
-            android:id="@+id/description"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/dog_name"
-            android:layout_alignStart="@id/dog_name"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="@dimen/margin_size_m"
             android:layout_marginTop="@dimen/margin_size_m"
-            android:layout_marginBottom="@dimen/margin_size_s"
-            android:text="@string/description"
-            android:textSize="@dimen/text_size_m" />
+            android:layout_marginEnd="@dimen/margin_size_m"
+            android:layout_marginBottom="@dimen/margin_size_m"
+            android:src="@drawable/ic_dog" />
 
-        <ImageView
-            android:id="@+id/genre"
+        <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/description"
-            android:src="@drawable/ic_female" />
+            android:layout_below="@id/dog_photo"
+            android:layout_alignStart="@id/dog_photo"
+            android:layout_alignEnd="@id/dog_photo">
 
-        <TextView
-            android:id="@+id/female"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignTop="@id/genre"
-            android:layout_alignBottom="@id/genre"
-            android:layout_marginStart="@dimen/margin_size_m"
-            android:text="@string/genre"
-            android:textAlignment="center"
-            android:textSize="@dimen/text_size_m" />
+            <TextView
+                android:id="@+id/dog_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/name"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_size_l" />
 
-        <ImageView
-            android:id="@+id/cake"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignStart="@id/female"
-            android:layout_alignTop="@id/genre"
-            android:layout_marginStart="@dimen/margin_size_xl"
-            android:src="@drawable/ic_cake" />
+            <TextView
+                android:id="@+id/description"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/dog_name"
+                android:layout_alignStart="@id/dog_name"
+                android:layout_marginTop="@dimen/margin_size_m"
+                android:layout_marginBottom="@dimen/margin_size_s"
+                android:text="@string/description"
+                android:textSize="@dimen/text_size_m" />
 
-        <TextView
-            android:id="@+id/birthday"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignStart="@id/cake"
-            android:layout_alignTop="@id/cake"
-            android:layout_alignBottom="@id/cake"
-            android:layout_marginStart="@dimen/margin_size_m"
-            android:text="@string/birthday"
-            android:textAlignment="center"
-            android:textSize="@dimen/text_size_m" />
+            <ImageView
+                android:id="@+id/genre"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/description"
+                android:src="@drawable/ic_female" />
 
-        <ImageView
-            android:id="@+id/share"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_share"
-            android:layout_alignTop="@id/cake"
-            android:layout_alignParentEnd="true"
-            android:layout_marginEnd="@dimen/margin_size_xl"/>
+            <TextView
+                android:id="@+id/female"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@id/genre"
+                android:layout_alignBottom="@id/genre"
+                android:layout_marginStart="@dimen/margin_size_m"
+                android:text="@string/genre"
+                android:textAlignment="center"
+                android:textSize="@dimen/text_size_m" />
 
-        <ImageView
-            android:id="@+id/favorite"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_favorite"
-            android:layout_alignTop="@id/cake"
-            android:layout_alignParentEnd="true"
-            android:layout_marginEnd="@dimen/margin_size_l"/>
+            <ImageView
+                android:id="@+id/cake"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignStart="@id/female"
+                android:layout_alignTop="@id/genre"
+                android:layout_marginStart="@dimen/margin_size_xl"
+                android:src="@drawable/ic_cake" />
+
+            <TextView
+                android:id="@+id/birthday"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignStart="@id/cake"
+                android:layout_alignTop="@id/cake"
+                android:layout_alignBottom="@id/cake"
+                android:layout_marginStart="@dimen/margin_size_m"
+                android:text="@string/birthday"
+                android:textAlignment="center"
+                android:textSize="@dimen/text_size_m" />
+
+            <ImageView
+                android:id="@+id/share"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_share"
+                android:layout_alignTop="@id/cake"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="@dimen/margin_size_xl" />
+
+            <ImageView
+                android:id="@+id/favorite"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_favorite"
+                android:layout_alignTop="@id/cake"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="@dimen/margin_size_l" />
+
+        </RelativeLayout>
 
     </RelativeLayout>
 
-</RelativeLayout>
+    <include android:id="@+id/layout_error" layout="@layout/view_error"/>
+
+
+</FrameLayout>

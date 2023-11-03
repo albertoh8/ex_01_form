@@ -20,7 +20,8 @@
     <string name="action_ex01">Ejercicio01</string>
     <string name="action_ex02a">Ejercicio02a</string>
     <string name="action_ex02b">Ejercicio02b</string>
-    <string name="action_ex02c">Ejercicio02b</string>
+    <string name="action_ex02c">Ejercicio02c</string>
+    <string name="action_ex03">Ejercicio03 Glide</string>
     <!--Ex02b strings-->
     <string name="discount">Discount</string>
     <string name="rate">Rate</string>
@@ -35,5 +36,6 @@
     <string name="dowloads">Descargas</string>
     <string name="size">size</string>
     <string name="duration">duration</string>
+    <string name="error_message">Unknown Error</string>
 
 </resources>

@@ -25,7 +25,9 @@ class Ex02ActivityViewModel(
         }
     }
 
-    private fun responseError(errorApp: ErrorApp) {}
+    private fun responseError(errorApp: ErrorApp) {
+        _uiState.postValue((UiState(errorApp)))
+    }
 
     private fun responseGetDogSucess(dog: Dog){
         _uiState.postValue(UiState(dog = dog))

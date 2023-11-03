@@ -1,10 +1,10 @@
-package com.alberherjim.androidtraining.data
+package com.alberherjim.androidtraining.features.ex_01.data
 
 import android.content.SharedPreferences
 import com.alberherjim.androidtraining.app.ErrorApp
-import com.alberherjim.androidtraining.data.local.xml.XmlLocalDataSource
-import com.alberherjim.androidtraining.domain.User
-import com.alberherjim.androidtraining.domain.UserRepository
+import com.alberherjim.androidtraining.features.ex_01.data.local.xml.XmlLocalDataSource
+import com.alberherjim.androidtraining.features.ex_01.domain.User
+import com.alberherjim.androidtraining.features.ex_01.domain.UserRepository
 import com.iesam.kotlintrainning.Either
 import com.iesam.kotlintrainning.right
 

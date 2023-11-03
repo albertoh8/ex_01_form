@@ -1,4 +1,4 @@
-package com.alberherjim.androidtraining.domain
+package com.alberherjim.androidtraining.features.ex_01.domain
 
 import com.alberherjim.androidtraining.app.ErrorApp
 import com.iesam.kotlintrainning.Either
@@ -8,7 +8,7 @@ class SaveUserUseCase(
     private val repository: UserRepository
 ) {
 
-    operator fun invoke(user:User): Either<ErrorApp, Boolean> {
+    operator fun invoke(user: User): Either<ErrorApp, Boolean> {
         return repository.save(user)
     }
 
