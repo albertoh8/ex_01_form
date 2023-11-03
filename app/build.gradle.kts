@@ -55,7 +55,14 @@ dependencies {
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version")
     implementation("androidx.activity:activity-ktx:1.7.2")
 
+    //Skeleton
     implementation("com.faltenreich:skeletonlayout:5.0.0")
 
+    //Glide
     implementation("com.github.bumptech.glide:glide:4.16.0")
+
+    //Retrofit
+    implementation ("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation ("com.squareup.retrofit2:converter-gson:2.9.0")
+    implementation ("com.squareup.okhttp3:logging-interceptor:4.9.3")
 }
